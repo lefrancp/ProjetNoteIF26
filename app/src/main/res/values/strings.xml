@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ProjetNoteIF26</string>
+    <string-array name="Admission">
+        <item>Tronc Commun</item>
+        <item>Branche</item>
+    </string-array>
+
+    <string-array name="Filiere">
+        <item>Aucune</item>
+        <item>MPL</item>
+        <item>MSI</item>
+        <item>chais plus xd</item>
+    </string-array>
+
 </resources>
