@@ -12,4 +12,57 @@
         <item>chais plus xd</item>
     </string-array>
 
+    <string-array name="LabelSemestreAdmissionTC">
+        <item>TC01</item>
+        <item>TC02</item>
+        <item>TC03</item>
+        <item>TC04</item>
+        <item>TC05</item>
+        <item>TC06</item>
+        <item>ISI1</item>
+        <item>ISI2</item>
+        <item>ISI3</item>
+        <item>ISI4</item>
+        <item>ISI5</item>
+        <item>ISI6</item>
+        <item>ISI7</item>
+        <item>ISI8</item>
+        <item>Autre</item>
+    </string-array>
+
+    <string-array name="LabelSemestreAdmissionBranche">
+        <item>TC01</item>
+        <item>TC02</item>
+        <item>TC03</item>
+        <item>TC04</item>
+        <item>TC05</item>
+        <item>TC06</item>
+        <item>ISI1</item>
+        <item>ISI2</item>
+        <item>ISI3</item>
+        <item>ISI4</item>
+        <item>ISI5</item>
+        <item>ISI6</item>
+        <item>ISI7</item>
+        <item>ISI8</item>
+        <item>Autre</item>
+    </string-array>
+
+    <string-array name="ListeUe"> //Récupérer la liste dans la BDD
+        <item>SI10</item> //Items pour tests
+        <item>MS11</item>
+    </string-array>
+
+    <string-array name="Resultats">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>Fx</item>
+        <item>EQU</item>
+    </string-array>
+
+
 </resources>

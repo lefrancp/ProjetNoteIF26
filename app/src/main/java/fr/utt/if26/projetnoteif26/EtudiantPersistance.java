@@ -5,9 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
-public class ModulePersistance extends SQLiteOpenHelper implements PersistanceInterface {
+public class EtudiantPersistance extends SQLiteOpenHelper implements PersistanceInterface {
 
-    public ModulePersistance(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public EtudiantPersistance(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 

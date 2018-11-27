@@ -27,7 +27,7 @@ public class CreerEtudiant extends AppCompatActivity {
         spinnerFiliere = findViewById(R.id.activity_creer_etudiant_spinner_filiere_id);
         submit = findViewById(R.id.activity_creer_etudiant_button_id);
 
-        
+
 
 
     }
