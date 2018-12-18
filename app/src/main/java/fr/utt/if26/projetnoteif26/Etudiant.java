@@ -19,6 +19,7 @@ public class Etudiant {
     }
 
     public Etudiant(Integer numeroEtu, String nom, String prenom, String admission, String filiere) {
+        this.numeroEtu = numeroEtu;
         this.nom = nom;
         this.prenom = prenom;
         this.admission = admission;
@@ -27,5 +28,45 @@ public class Etudiant {
 
     public void ajouteCursus(Cursus cursus) {
         this.cursus = cursus;
+    }
+
+    public Integer getNumeroEtu() {
+        return numeroEtu;
+    }
+
+    public void setNumeroEtu(Integer numeroEtu) {
+        this.numeroEtu = numeroEtu;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getAdmission() {
+        return admission;
+    }
+
+    public void setAdmission(String admission) {
+        this.admission = admission;
+    }
+
+    public String getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(String filiere) {
+        this.filiere = filiere;
     }
 }

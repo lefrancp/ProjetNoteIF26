@@ -55,57 +55,82 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/ListeCS" />
 
             <Spinner
                 android:id="@+id/spinner7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:entries="Resultats" />
+                android:entries="@array/Resultats" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/ListeCS" />
 
             <Spinner
                 android:id="@+id/spinner5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="500dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/ListeTM" />
 
             <Spinner
                 android:id="@+id/spinner3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="500dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/ListeTM" />
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
         </LinearLayout>
 
         <LinearLayout
@@ -115,52 +140,76 @@
 
             <Spinner
                 android:id="@+id/spinner21"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="500dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/ListeMECTHT" />
 
             <Spinner
                 android:id="@+id/spinner20"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="500dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/ListeMECTHT" />
 
             <Spinner
                 android:id="@+id/spinner18"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="500dp"
+                android:layout_height="45dp"
                 android:layout_weight="1" />
 
             <Spinner
                 android:id="@+id/spinner16"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/spinner15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="500dp"
+                android:layout_height="45dp"
                 android:layout_weight="1" />
 
             <Spinner
                 android:id="@+id/spinner9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:entries="@array/Resultats" />
         </LinearLayout>
 
     </LinearLayout>
