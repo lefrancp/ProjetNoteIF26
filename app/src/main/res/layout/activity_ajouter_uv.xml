@@ -16,10 +16,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/Ajouter UE"
+            android:id="@+id/Texttt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Ajouter UE"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
