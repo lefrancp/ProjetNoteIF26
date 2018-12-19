@@ -7,21 +7,53 @@ public class UE {    // On stocke sigle, catégorie et credit dans la BDD. Affec
     String categorie; //CS, TM, EC, ME, HT, ST,
     String affectation; //TC, TCBR, Filiere
     Integer credit;
-    String resultat;
+    //String resultat;
 
     public UE() {
         this.sigle = "default";
         this.categorie = "default";
         this.affectation = "default";
         this.credit = 0;
-        this.resultat = "default";
+        //this.resultat = "default";
     }
 
-    public UE(String sigle, String categorie, String affectation, Integer credit, String resultat) {
+    public UE(String sigle, String categorie, String affectation, Integer credit) {
         this.sigle = sigle;
         this.categorie = categorie;
         this.affectation = affectation;
         this.credit = credit;
-        this.resultat = resultat;
+        //this.resultat = resultat;
+    }
+
+    public String getSigle() {
+        return sigle;
+    }
+
+    public void setSigle(String sigle) {
+        this.sigle = sigle;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public String getAffectation() {
+        return affectation;
+    }
+
+    public void setAffectation(String affectation) {
+        this.affectation = affectation;
+    }
+
+    public Integer getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Integer credit) {
+        this.credit = credit;
     }
 }
