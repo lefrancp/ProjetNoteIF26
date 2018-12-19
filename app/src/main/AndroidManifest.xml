@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ListeEtudiant" />
         <activity android:name=".CreerEtudiant" />
-        <activity android:name=".CreerCursus"></activity>
+        <activity android:name=".CreerCursus" />
+        <activity android:name=".AjouterUV"></activity>
     </application>
 
 </manifest>

@@ -59,14 +59,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner8"
+                android:id="@+id/activity_creer_cursus_Spinner_CS1_id"
                 android:layout_width="500dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:entries="@array/ListeCS" />
 
             <Spinner
-                android:id="@+id/spinner7"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatCS1_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -79,14 +79,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner6"
+                android:id="@+id/activity_creer_cursus_Spinner_CS2_id"
                 android:layout_width="500dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:entries="@array/ListeCS" />
 
             <Spinner
-                android:id="@+id/spinner5"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatCS2_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -99,14 +99,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/activity_creer_cursus_Spinner_TM1_id"
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:entries="@array/ListeTM" />
 
             <Spinner
-                android:id="@+id/spinner3"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatTM1_id"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -119,14 +119,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/activity_creer_cursus_Spinner_TM2_id"
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:entries="@array/ListeTM" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatTM2_id"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -139,14 +139,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner21"
+                android:id="@+id/activity_creer_cursus_Spinner_MECTHT1_id"
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:entries="@array/ListeMECTHT" />
 
             <Spinner
-                android:id="@+id/spinner20"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatMECTHT1_id"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -160,14 +160,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner19"
+                android:id="@+id/activity_creer_cursus_Spinner_MECTHT2_id"
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:entries="@array/ListeMECTHT" />
 
             <Spinner
-                android:id="@+id/spinner18"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatMECTHT2_id"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -211,6 +211,12 @@
                 android:layout_weight="1"
                 android:entries="@array/Resultats" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/activity_creer_cursus_Button_ajouterUV_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter UV" />
 
     </LinearLayout>
 

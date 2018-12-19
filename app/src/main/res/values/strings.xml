@@ -48,18 +48,21 @@
         <item>Autre</item>
     </string-array>
 
-    <string-array name="ListeCS"> //Récupérer la liste dans la BDD
-        <item>PHYS01</item> //Items pour tests
+    <string-array name="ListeCS">//Récupérer la liste dans la BDD
+        <item>PHYS01</item>
+        //Items pour tests
         <item>MATH01</item>
     </string-array>
 
-    <string-array name="ListeTM"> //Récupérer la liste dans la BDD
-        <item>MS11</item> //Items pour tests
+    <string-array name="ListeTM">//Récupérer la liste dans la BDD
+        <item>MS11</item>
+        //Items pour tests
         <item>LO02</item>
     </string-array>
 
-    <string-array name="ListeMECTHT"> //Récupérer la liste dans la BDD
-        <item>GE31</item> //Items pour tests
+    <string-array name="ListeMECTHT">//Récupérer la liste dans la BDD
+        <item>GE31</item>
+        //Items pour tests
         <item>GE21</item>
         <item>SI10</item>
         <item>LG08</item>
@@ -79,6 +82,14 @@
         <item>EQU</item>
     </string-array>
 
+    <string-array name="CategorieUE">
+        <item>CS</item>
+        <item>TM</item>
+        <item>ME</item>
+        <item>CT</item>
+        <item>HT</item>
+        <item>ST</item>
+    </string-array>
 
 
 </resources>
