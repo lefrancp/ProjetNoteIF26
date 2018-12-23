@@ -44,12 +44,11 @@ public class CreerEtudiant extends AppCompatActivity implements View.OnClickList
                 Etudiant newEtudiant = new Etudiant(Integer.parseInt(numeroEtu.getText().toString()),nom.getText().toString(),prenom.getText().toString(),spinnerAdmission.getSelectedItem().toString(),spinnerFiliere.getSelectedItem().toString());
                 persistence.addEtudiant(newEtudiant);
                 OuvreCreerCursus();
-
                 break;
     }
 }
     public void OuvreCreerCursus() {
-        Intent intent = new Intent(this,ListeEtudiant.class);
+        Intent intent = new Intent(this,CreerCursus.class);
         startActivity(intent);
     }
 }

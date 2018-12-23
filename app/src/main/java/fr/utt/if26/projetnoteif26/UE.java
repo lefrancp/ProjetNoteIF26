@@ -5,22 +5,22 @@ public class UE {    // On stocke sigle, catégorie et credit dans la BDD. Affec
 
     String sigle;
     String categorie; //CS, TM, EC, ME, HT, ST,
-    String affectation; //TC, TCBR, Filiere
+    //String affectation; //TC, TCBR, Filiere
     Integer credit;
     //String resultat;
 
     public UE() {
         this.sigle = "default";
         this.categorie = "default";
-        this.affectation = "default";
+        //this.affectation = "default";
         this.credit = 0;
         //this.resultat = "default";
     }
 
-    public UE(String sigle, String categorie, String affectation, Integer credit) {
+    public UE(String sigle, String categorie, Integer credit) {
         this.sigle = sigle;
         this.categorie = categorie;
-        this.affectation = affectation;
+        //this.affectation = affectation;
         this.credit = credit;
         //this.resultat = resultat;
     }
@@ -39,14 +39,6 @@ public class UE {    // On stocke sigle, catégorie et credit dans la BDD. Affec
 
     public void setCategorie(String categorie) {
         this.categorie = categorie;
-    }
-
-    public String getAffectation() {
-        return affectation;
-    }
-
-    public void setAffectation(String affectation) {
-        this.affectation = affectation;
     }
 
     public Integer getCredit() {

@@ -62,8 +62,8 @@
                 android:id="@+id/activity_creer_cursus_Spinner_CS1_id"
                 android:layout_width="500dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:entries="@array/ListeCS" />
+                android:prompt="@array/spinner_title"
+                android:layout_weight="1" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_Spinner_ResultatCS1_id"
@@ -82,8 +82,8 @@
                 android:id="@+id/activity_creer_cursus_Spinner_CS2_id"
                 android:layout_width="500dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:entries="@array/ListeCS" />
+                android:prompt="@array/spinner_title"
+                android:layout_weight="1" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_Spinner_ResultatCS2_id"

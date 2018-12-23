@@ -48,10 +48,8 @@
         <item>Autre</item>
     </string-array>
 
-    <string-array name="ListeCS">//Récupérer la liste dans la BDD
-        <item>PHYS01</item>
-        //Items pour tests
-        <item>MATH01</item>
+    <string-array name="spinner_title">//Récupérer la liste dans la BDD
+        <item>CS1</item>
     </string-array>
 
     <string-array name="ListeTM">//Récupérer la liste dans la BDD

@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class CreerCursus extends AppCompatActivity implements View.OnClickListener{
+import java.util.List;
+
+public class CreerCursus extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
 
     TextView numeroSemestre;
     Spinner labelSemestre;
@@ -27,6 +31,8 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
     Spinner mECTHT2;
     Spinner resultatMECTHT2;
     Button ajouterUV;
+
+    EtudiantPersistance persistance;
 
 
     @Override
@@ -55,6 +61,9 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
         ajouterUV.setOnClickListener(this);
 
 
+        loadSpinnerData();
+
+
 
     }
 
@@ -65,6 +74,28 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
                 Intent intent = new Intent(this,AjouterUV.class);
                 startActivity(intent);
         }
+
+    }
+
+    private void loadSpinnerData() {
+
+        persistance = new EtudiantPersistance(this,null,null,1);
+        List<String> labels = persistance.getAllCSlabels();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, labels);
+
+        cS1.setAdapter(dataAdapter);
+        cS2.setAdapter(dataAdapter);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

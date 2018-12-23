@@ -8,5 +8,12 @@ public void addEtudiant(Etudiant e) ;
 
 public ArrayList<Etudiant> getAllEtudiants();
 
+    public void addUV(UE e) ;
+
+    public ArrayList<UE> getAllUVs();
+
+    public ArrayList<String> getAllCSlabels();
+
+
 }
 
