@@ -42,7 +42,7 @@
                 android:layout_width="151dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1" />
+                android:text="0" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_spinner_labelSemestre_id"
@@ -103,7 +103,7 @@
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:entries="@array/ListeTM" />
+                android:prompt="@array/spinner_title" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_Spinner_ResultatTM1_id"
@@ -123,7 +123,7 @@
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:entries="@array/ListeTM" />
+                android:prompt="@array/spinner_title" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_Spinner_ResultatTM2_id"
@@ -143,7 +143,7 @@
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:entries="@array/ListeMECTHT" />
+                android:prompt="@array/spinner_title" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_Spinner_ResultatMECTHT1_id"
@@ -164,7 +164,7 @@
                 android:layout_width="500dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:entries="@array/ListeMECTHT" />
+                android:prompt="@array/spinner_title" />
 
             <Spinner
                 android:id="@+id/activity_creer_cursus_Spinner_ResultatMECTHT2_id"
@@ -180,13 +180,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner17"
+                android:id="@+id/activity_creer_cursus_Spinner_autre1_id"
                 android:layout_width="500dp"
                 android:layout_height="45dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:prompt="@array/spinner_title" />
 
             <Spinner
-                android:id="@+id/spinner16"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatAutre1_id"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -199,13 +200,14 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner15"
+                android:id="@+id/activity_creer_cursus_Spinner_autre2_id"
                 android:layout_width="500dp"
                 android:layout_height="45dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:prompt="@array/spinner_title" />
 
             <Spinner
-                android:id="@+id/spinner9"
+                android:id="@+id/activity_creer_cursus_Spinner_ResultatAutre2_id"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_weight="1"
@@ -217,6 +219,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ajouter UV" />
+
+        <Button
+            android:id="@+id/activity_creer_cursus_Button_ajouterSemestre_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter Semestre" />
+
+        <Button
+            android:id="@+id/activity_creer_cursus_Button_TerminerCursus_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terminer Cursus" />
 
     </LinearLayout>
 

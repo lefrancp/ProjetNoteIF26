@@ -8,7 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EtudiantPersistance extends SQLiteOpenHelper implements PersistanceInterface {
 
@@ -27,6 +29,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
     private static final String ATTRIBUT_SIGLE = "sigle"; //clé primaire -> sigle (LO07, IF26, etc.)
     private static final String ATTRIBUT_CATEGORIE = "categorie"; //cs tm ht etc
     private static final String ATTRIBUT_CREDITS = "credits"; //crédits que rapporte l'uv
+
 
     final String table_etudiant_create =
             "CREATE TABLE " + TABLE_ETUDIANTS + "(" +
@@ -131,23 +134,43 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
     }
 
     @Override
-    public ArrayList<String> getAllCSlabels() {
-
-        ArrayList<String> labelsCS = new ArrayList<String>();
+    public ArrayList<ArrayList<String>> getAllCSlabels() {
+        ArrayList<ArrayList<String>> labels = new ArrayList<ArrayList<String>>();
+        ArrayList<String> labelsCS = new ArrayList<String>(Arrays.asList("CS", "Aucun"));
+        ArrayList<String> labelsTM = new ArrayList<String>(Arrays.asList("TM", "Aucun"));
+        ArrayList<String> labelsMECTHT = new ArrayList<String>(Arrays.asList("ME/CT/HT", "Aucun"));
+        ArrayList<String> labelsAutre = new ArrayList<String>(Arrays.asList("UE Supplémentaire", "Aucun"));
         String query = "SELECT * FROM " + TABLE_UVS + ";";
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-                //if (cursor.getString(2)== "CS")    {
-                    /*Log.i("SIGLE", cursor.getString(1));
-                    Log.i("CAEGORIE", cursor.getString(2));
-                    Log.i("credits", cursor.getString(3));*/
-
+            labelsAutre.add(cursor.getString(1));
+            String categorieLabel = cursor.getString(2);
+                switch (categorieLabel){
+                    case "CS" :
                     labelsCS.add(cursor.getString(1));
-                    //Log.i("tfgv",labelsCS.toString());
-                //}
+                        break;
+                    case "TM" :
+                        labelsTM.add(cursor.getString(1));
+                        break;
+                    case "ME" :
+                        labelsMECTHT.add(cursor.getString(1));
+                        break;
+                    case "CT" :
+                        labelsMECTHT.add(cursor.getString(1));
+                        break;
+                    case "HT" :
+                        labelsMECTHT.add(cursor.getString(1));
+                        break;
+                }
             } while (cursor.moveToNext());
         this.getWritableDatabase().close();
-        return labelsCS;
+        labels.add(labelsCS);
+        labels.add(labelsTM);
+        labels.add(labelsMECTHT);
+        labels.add(labelsAutre);
+        return labels;
     }
+
+
 }

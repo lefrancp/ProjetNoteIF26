@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 
 public class ListeEtudiant extends AppCompatActivity {
 
-    Button afficherCursus;
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,15 @@ public class ListeEtudiant extends AppCompatActivity {
         ArrayList<Etudiant> etudiants = persistance.getAllEtudiants();
         EtudiantAdaptateur adaptateur = new EtudiantAdaptateur(this, R.layout.etudiant,etudiants);
         listeEtu.setAdapter(adaptateur);
+
+        intent = new Intent(this, AfficheCursus.class);
+
+        listeEtu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(intent);
+            }
+        });
 
     }
 

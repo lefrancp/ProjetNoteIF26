@@ -12,7 +12,7 @@ public ArrayList<Etudiant> getAllEtudiants();
 
     public ArrayList<UE> getAllUVs();
 
-    public ArrayList<String> getAllCSlabels();
+    public ArrayList<ArrayList<String>> getAllCSlabels();
 
 
 }
