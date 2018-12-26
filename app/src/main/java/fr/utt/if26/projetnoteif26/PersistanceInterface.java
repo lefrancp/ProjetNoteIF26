@@ -15,5 +15,12 @@ public ArrayList<Etudiant> getAllEtudiants();
     public ArrayList<ArrayList<String>> getAllCSlabels();
 
 
+    void addCursus(Cursus c);
+
+    ArrayList<Cursus> getAllCursus();
+
+    Etudiant getEtudiant(Integer num_etu);
+
+    UE getUV(String sigle);
 }
 
