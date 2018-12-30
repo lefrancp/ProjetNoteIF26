@@ -43,12 +43,14 @@ public class CreerEtudiant extends AppCompatActivity implements View.OnClickList
             case R.id.activity_creer_etudiant_button_id :
                 Etudiant newEtudiant = new Etudiant(Integer.parseInt(numeroEtu.getText().toString()),nom.getText().toString(),prenom.getText().toString(),spinnerAdmission.getSelectedItem().toString(),spinnerFiliere.getSelectedItem().toString());
                 persistence.addEtudiant(newEtudiant);
+
                 OuvreCreerCursus();
                 break;
     }
 }
     public void OuvreCreerCursus() {
         Intent intent = new Intent(this,CreerCursus.class);
+        intent.putExtra("numero_etu", numeroEtu.getText().toString());
         startActivity(intent);
     }
 }

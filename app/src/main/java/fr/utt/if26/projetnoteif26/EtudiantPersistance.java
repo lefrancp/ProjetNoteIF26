@@ -57,14 +57,15 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
     final String table_cursus_create =
             "CREATE TABLE " + TABLE_CURSUS + "(" +
-                    ATTRIBUT_CURSUS_NUMETU + " TEXT, " +
+                    "id INTEGER primary key autoincrement, " +
+                    ATTRIBUT_CURSUS_NUMETU + " INTEGER, " +
                     ATTRIBUT_CURSUS_SIGLE + " TEXT, " +
-                    ATTRIBUT_CURSUS_RESULTAT + " INTEGER," +
-                    ATTRIBUT_CURSUS_SEMESTRE + "TEXT," +
-                    ATTRIBUT_CURSUS_NPML + "TEXT," +
+                    ATTRIBUT_CURSUS_RESULTAT + " TEXT, " +
+                    ATTRIBUT_CURSUS_SEMESTRE + " TEXT, " +
+                    ATTRIBUT_CURSUS_NPML + " TEXT" +
 
-                    "FOREIGN KEY (" + ATTRIBUT_CURSUS_NUMETU + ") REFERENCES " + TABLE_ETUDIANTS + "(" + ATTRIBUT_NUMEROETU + ")," +
-                    "FOREIGN KEY (" + ATTRIBUT_CURSUS_SIGLE + ") REFERENCES " + TABLE_UVS + "(" + ATTRIBUT_SIGLE + ")" +
+                    /*"FOREIGN KEY (" + ATTRIBUT_CURSUS_NUMETU + ") REFERENCES " + TABLE_ETUDIANTS + "(" + ATTRIBUT_NUMEROETU + ")," +
+                    "FOREIGN KEY (" + ATTRIBUT_CURSUS_SIGLE + ") REFERENCES " + TABLE_UVS + "(" + ATTRIBUT_SIGLE + ")" +*/
                     ")";
 
 
@@ -78,6 +79,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         sqLiteDatabase.execSQL(table_etudiant_create);
         sqLiteDatabase.execSQL(table_uvs_create);
         sqLiteDatabase.execSQL(table_cursus_create);
+        Log.i("TABLECURSUS", table_cursus_create);
     }
 
 
@@ -132,6 +134,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_UVS,null,cv);
+        //Log.i("SLTTTTT",String.valueOf(db.insert(TABLE_UVS,null,cv)));
 
         db.close();
     }
@@ -144,7 +147,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-                UE ue = new UE(cursor.getString(0),cursor.getString(1),cursor.getInt(2));
+                UE ue = new UE(cursor.getString(1),cursor.getString(2),cursor.getInt(3));
                 Log.i("query",ue.toString());
                 ues.add(ue);
             } while (cursor.moveToNext());
@@ -203,6 +206,8 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_CURSUS,null,cv);
+        Log.i("BISOUUUUUUUUS", cv.toString());
+
 
         db.close();
     }
@@ -215,7 +220,23 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-                Cursus c = new Cursus(getEtudiant(cursor.getInt(0)),getUV(cursor.getString(1)),cursor.getString(2), cursor.getString(3), cursor.getString(4));
+                Cursus c = new Cursus(cursor.getInt(1),cursor.getString(2),cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                cursus.add(c);
+            } while (cursor.moveToNext());
+        this.getWritableDatabase().close();
+        //Log.d("getetus",etudiants.toString());
+        return cursus;
+    }
+
+    @Override
+    public ArrayList<Cursus> getCursusFromNumEtu(Integer numEtu) {
+
+        ArrayList<Cursus> cursus = new ArrayList<Cursus>();
+        String query = "SELECT * FROM " + TABLE_CURSUS + " WHERE " + ATTRIBUT_CURSUS_NUMETU + " = " + numEtu + ";" ;
+        Cursor cursor = getWritableDatabase().rawQuery(query, null);
+        if (cursor.moveToFirst())
+            do  {
+                Cursus c = new Cursus(cursor.getInt(1),cursor.getString(2),cursor.getString(3), cursor.getString(4), cursor.getString(5));
                 cursus.add(c);
             } while (cursor.moveToNext());
         this.getWritableDatabase().close();
@@ -226,7 +247,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
     @Override
     public Etudiant getEtudiant(Integer num_etu) {
-        String query = "SELECT * FROM " + TABLE_ETUDIANTS + "WHERE" + ATTRIBUT_NUMEROETU + "=" + num_etu + ";";
+        String query = "SELECT * FROM " + TABLE_ETUDIANTS + " WHERE " + ATTRIBUT_NUMEROETU + " = " + num_etu + ";";
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
 
             Etudiant etudiant = new Etudiant(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
@@ -239,14 +260,34 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
     }
 
     @Override
-    public UE getUV(String sigle) {
-        String query = "SELECT * FROM " + TABLE_UVS + "WHERE" + ATTRIBUT_SIGLE + "=" + sigle + ";";
+    public ArrayList<UE> getUV(String sigle) {
+
+        ArrayList<UE> ues = new ArrayList<UE>();
+        String query = "SELECT * FROM " + TABLE_UVS + " WHERE " + ATTRIBUT_SIGLE + " = '" + sigle + "';";
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
-        UE uv = new UE(cursor.getString(0),cursor.getString(1),cursor.getInt(2));
+        if (cursor.moveToFirst())
+            do  {
+                UE uv = new UE(cursor.getString(1),cursor.getString(2),cursor.getInt(3));
+                ues.add(uv);
+            } while (cursor.moveToNext());
+
 
         this.getWritableDatabase().close();
-        //Log.d("getetus",etudiants.toString());
-        return uv;
+        return ues;
+    }
+
+    @Override
+    public String getResultatFromCursus(String sigle) {
+
+        String resultat = "";
+        String query = "SELECT c.resultat FROM " + TABLE_CURSUS + " AS c WHERE c.sigle='" + sigle + "'";
+        Cursor cursor = getWritableDatabase().rawQuery(query, null);
+        if (cursor.moveToFirst())
+            do  {
+resultat = cursor.getString(0);
+            } while (cursor.moveToNext());
+        this.getWritableDatabase().close();
+        return resultat;
     }
 
 

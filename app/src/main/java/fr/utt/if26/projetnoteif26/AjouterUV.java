@@ -48,11 +48,11 @@ public class AjouterUV extends AppCompatActivity implements View.OnClickListener
             case R.id.activity_ajouter_uv_Button_submit_id :
                 UE newUE = new UE(sigleUE.getText().toString(), categorieUE.getSelectedItem().toString(), Integer.parseInt(creditUE.getText().toString()));
                 persistence.addUV(newUE);
-                Log.i("AAAAAAAAAAAAAAAAAA", persistence.getAllCSlabels().toString());
-                Log.i("AAAAAAAAAAAAAAAAAAaaaaa", persistence.getAllUVs().toString());
                 Toast.makeText(this, "UE ajoutée", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
                 this.finish();
             case R.id.activity_ajouter_uv_Button_retour_id :
+                setResult(RESULT_CANCELED);
                 this.finish();
         }
 

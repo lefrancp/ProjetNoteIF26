@@ -10,9 +10,9 @@ public class Cursus {
     String semestre; //semestre à laquelle l'uv est effectuée
     String NPML;
 
-    public Cursus(Etudiant e, UE u, String resultat, String semestre, String NPML) {
-        this.num_etu = e.getNumeroEtu();
-        this.sigle = u.getSigle();
+    public Cursus(Integer num_etu, String sigle, String resultat, String semestre, String NPML) {
+        this.num_etu = num_etu;
+        this.sigle = sigle;
         this.resultat = resultat;
         this.semestre = semestre;
         this.NPML = NPML;

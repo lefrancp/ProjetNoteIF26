@@ -15,7 +15,6 @@ public class Etudiant {
         this.prenom = "default";
         this.admission = "default";
         this.filiere = "default";
-        this.cursus = new Cursus();
     }
 
     public Etudiant(Integer numeroEtu, String nom, String prenom, String admission, String filiere) {

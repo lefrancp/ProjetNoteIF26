@@ -14,6 +14,8 @@ public ArrayList<Etudiant> getAllEtudiants();
 
     public ArrayList<ArrayList<String>> getAllCSlabels();
 
+    public ArrayList<Cursus> getCursusFromNumEtu(Integer numEtu);
+
 
     void addCursus(Cursus c);
 
@@ -21,6 +23,9 @@ public ArrayList<Etudiant> getAllEtudiants();
 
     Etudiant getEtudiant(Integer num_etu);
 
-    UE getUV(String sigle);
+    public ArrayList<UE> getUV(String sigle);
+
+    public String getResultatFromCursus(String sigle);
+
 }
 

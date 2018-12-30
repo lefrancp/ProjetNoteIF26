@@ -42,6 +42,8 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
     Button ajouterUV;
     Button ajouterSemestre;
 
+    Integer numEtu;
+
     EtudiantPersistance persistance;
 
 
@@ -49,6 +51,8 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creer_cursus);
+
+
 
         numeroSemestre = (TextView) findViewById(R.id.activity_creer_cursus_textView_numeroSemestre_id);
         labelSemestre = (Spinner) findViewById(R.id.activity_creer_cursus_spinner_labelSemestre_id);
@@ -76,10 +80,20 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String numSemestreExtra = extras.getString("numero_semestre");
-            numeroSemestre.setText(numSemestreExtra, TextView.BufferType.EDITABLE);
+            if (extras.getString("numero_semestre")!= null) {
+                String numSemestreExtra = extras.getString("numero_semestre");
+                numeroSemestre.setText(numSemestreExtra, TextView.BufferType.EDITABLE);
+            } else {
+                numeroSemestre.setText(String.valueOf(0));
+            }
+            if (extras.getString("numero_etu")!= null) {
+                numEtu = Integer.parseInt(extras.getString("numero_etu"));
+            } else {
+                numEtu = 99999;
+            }
         } else {
             numeroSemestre.setText(String.valueOf(0));
+            numEtu = 99999;
         }
 
         ajouterUV.setOnClickListener(this);
@@ -96,13 +110,40 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.activity_creer_cursus_Button_ajouterUV_id :
                 Intent intentUV = new Intent(this,AjouterUV.class);
-                startActivity(intentUV);
+                int requestCode =0;
+                startActivityForResult(intentUV, requestCode);
                 break;
             case R.id.activity_creer_cursus_Button_ajouterSemestre_id :
-                //PENSER A AJOUTER LE SEMESTRE A LA BDD DU CURSUS
                 Intent intentSemestre = new Intent(this, CreerCursus.class);
                 intentSemestre.putExtra("numero_semestre", numeroSemestre.getText().toString());
+                intentSemestre.putExtra("numero_etu", String.valueOf(numEtu));
+                Cursus CursusUE1 = new Cursus(numEtu, cS1.getSelectedItem().toString(), resultatCS1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE1);
+                Cursus CursusUE2 = new Cursus(numEtu, cS2.getSelectedItem().toString(), resultatCS2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE2);
+                Cursus CursusUE3 = new Cursus(numEtu, tM1.getSelectedItem().toString(), resultatTM1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE3);
+                Cursus CursusUE4 = new Cursus(numEtu, tM2.getSelectedItem().toString(), resultatTM2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE4);
+                Cursus CursusUE5 = new Cursus(numEtu, mECTHT1.getSelectedItem().toString(), resultatMECTHT1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE5);
+                Cursus CursusUE6 = new Cursus(numEtu, mECTHT2.getSelectedItem().toString(), resultatMECTHT2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE6);
+                Cursus CursusUE7 = new Cursus(numEtu, autre1.getSelectedItem().toString(), resultatAutre1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE7);
+                Cursus CursusUE8 = new Cursus(numEtu, autre2.getSelectedItem().toString(), resultatAutre2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+                persistance.addCursus(CursusUE8);
                 startActivity(intentSemestre);
+                this.finish();
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (resultCode) {
+            case RESULT_OK:
+                this.recreate();
         }
 
     }
