@@ -25,7 +25,10 @@ public ArrayList<Etudiant> getAllEtudiants();
 
     public ArrayList<UE> getUV(String sigle);
 
-    public String getResultatFromCursus(String sigle);
+    public String getResultatFromCursus(String sigle, int numeroEtu, String labelSemestre);
+
+    public UE getUVseule(String sigle);
+
 
 }
 

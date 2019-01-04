@@ -8,6 +8,7 @@ public class Cursus {
     String sigle;//sigle -> recup de UV
     String resultat; //resultalt de l'uv
     String semestre; //semestre à laquelle l'uv est effectuée
+    String affectation = "default";
     String NPML;
 
     public Cursus(Integer num_etu, String sigle, String resultat, String semestre, String NPML) {
@@ -18,6 +19,13 @@ public class Cursus {
         this.NPML = NPML;
     }
 
+    public String getAffectation() {
+        return affectation;
+    }
+
+    public void setAffectation(String affectation) {
+        this.affectation = affectation;
+    }
 
     public String getResultat() {
         return resultat;

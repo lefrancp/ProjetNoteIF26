@@ -7,15 +7,51 @@
     android:orientation="vertical"
     tools:context=".AfficheCursus">
 
-    <TextView
-        android:id="@+id/activity_affiche_cursus_numetu_id"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cursus de "
+            android:textAlignment="textEnd"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_affiche_cursus_nomEtu_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activity_affiche_cursus_pernomEtu_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/activity_affiche_cursus_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="206dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -23,6 +59,435 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="CS"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="TM"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="ST"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="EC"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="ME"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="CT"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTC"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="TC"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_CSdeTC"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_TMdeTC"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide1"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide2"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide3"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide4"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTCBR"
+                android:layout_width="13dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="TCBR"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_CSTMdeTCBR"
+                android:layout_width="63dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide5"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide6"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide7"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide8"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewFil"
+                android:layout_width="13dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="Filiere"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_TotalCSTMFiliere"
+                android:layout_width="63dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide9"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide10"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide11"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide12"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTCBRFiliere"
+                android:layout_width="13dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:paddingBottom="2dp"
+                android:paddingTop="4dp"
+                android:text="Total BR"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_TotalBR"
+                android:layout_width="63dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide14"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide15"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide17"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/vide18"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewGlobal"
+                android:layout_width="13dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:text="Global"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_GlobalCSTM"
+                android:layout_width="63dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_GlobalST"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_GlobalEC"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_GlobalME"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_affiche_cursus_TextView_GlobalCT"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/contours"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total credits : " />
+
+            <TextView
+                android:id="@+id/total_credits_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" / " />
+
+            <TextView
+                android:id="@+id/global_credit_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

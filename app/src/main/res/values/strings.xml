@@ -89,5 +89,29 @@
         <item>ST</item>
     </string-array>
 
+    <string-array name="AffectationCSTM">
+        <item>TC</item>
+        <item>TCBR</item>
+        <item>Filiere</item>
+    </string-array>
+
+    <string-array name="AffectationAutre">
+        <item> </item>
+        <item>TC</item>
+        <item>TCBR</item>
+        <item>Filiere</item>
+    </string-array>
+
+    <string name="creditCsdeTC">%1d/42"</string>
+    <string name="creditTmdeTC">%1d/24"</string>
+    <string name="creditCSTmdeTCBR">%1d/42"</string>
+    <string name="creditCsTMFiliere">%1d/18"</string>
+    <string name="totalBR">%1d/84"</string>
+    <string name="globalCSTM">%1d/102"</string>
+    <string name="globalST">%1d/66"</string>
+    <string name="globalEC">%1d/20"</string>
+    <string name="globalME">%1d/16"</string>
+    <string name="globalCT">%1d/16"</string>
+
 
 </resources>

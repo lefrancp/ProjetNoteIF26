@@ -35,6 +35,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
     private static final String ATTRIBUT_CURSUS_SIGLE = "sigle"; //clé étrangère de UV : identifie l'uv
     private static final String ATTRIBUT_CURSUS_RESULTAT = "resultat"; //résultat à cette uv
     private static final String ATTRIBUT_CURSUS_SEMESTRE = "semestre"; //à quel semestre ça a été fait (à group by par semestre pour affichage)
+    private static final String ATTRIBUT_CURSUS_AFFECTATION = "affectation";
     private static final String ATTRIBUT_CURSUS_NPML = "npml";
 
 
@@ -62,10 +63,8 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
                     ATTRIBUT_CURSUS_SIGLE + " TEXT, " +
                     ATTRIBUT_CURSUS_RESULTAT + " TEXT, " +
                     ATTRIBUT_CURSUS_SEMESTRE + " TEXT, " +
+                    ATTRIBUT_CURSUS_AFFECTATION + " TEXT, " +
                     ATTRIBUT_CURSUS_NPML + " TEXT" +
-
-                    /*"FOREIGN KEY (" + ATTRIBUT_CURSUS_NUMETU + ") REFERENCES " + TABLE_ETUDIANTS + "(" + ATTRIBUT_NUMEROETU + ")," +
-                    "FOREIGN KEY (" + ATTRIBUT_CURSUS_SIGLE + ") REFERENCES " + TABLE_UVS + "(" + ATTRIBUT_SIGLE + ")" +*/
                     ")";
 
 
@@ -85,12 +84,12 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_ETUDIANTS);
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_UVS);
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_CURSUS);
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_ETUDIANTS);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_UVS);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_CURSUS);
 
-            onCreate(sqLiteDatabase);
+        onCreate(sqLiteDatabase);
     }
 
     @Override
@@ -167,11 +166,11 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-            labelsAutre.add(cursor.getString(1));
-            String categorieLabel = cursor.getString(2);
+                labelsAutre.add(cursor.getString(1));
+                String categorieLabel = cursor.getString(2);
                 switch (categorieLabel){
                     case "CS" :
-                    labelsCS.add(cursor.getString(1));
+                        labelsCS.add(cursor.getString(1));
                         break;
                     case "TM" :
                         labelsTM.add(cursor.getString(1));
@@ -201,7 +200,8 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         cv.put(ATTRIBUT_CURSUS_NUMETU, c.getNum_etu());
         cv.put(ATTRIBUT_CURSUS_SIGLE, c.getSigle());
         cv.put(ATTRIBUT_CURSUS_RESULTAT, c.getResultat());
-        cv.put( ATTRIBUT_CURSUS_SEMESTRE, c.getSemestre());
+        cv.put(ATTRIBUT_CURSUS_SEMESTRE, c.getSemestre());
+        cv.put(ATTRIBUT_CURSUS_AFFECTATION, c.getAffectation());
         cv.put(ATTRIBUT_CURSUS_NPML, c.getNPML());
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -220,7 +220,8 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-                Cursus c = new Cursus(cursor.getInt(1),cursor.getString(2),cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                Cursus c = new Cursus(cursor.getInt(1),cursor.getString(2),cursor.getString(3), cursor.getString(4), cursor.getString(6));
+                c.setAffectation(cursor.getString(5));
                 cursus.add(c);
             } while (cursor.moveToNext());
         this.getWritableDatabase().close();
@@ -236,7 +237,8 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-                Cursus c = new Cursus(cursor.getInt(1),cursor.getString(2),cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                Cursus c = new Cursus(cursor.getInt(1),cursor.getString(2),cursor.getString(3), cursor.getString(4), cursor.getString(6));
+                c.setAffectation(cursor.getString(5));
                 cursus.add(c);
             } while (cursor.moveToNext());
         this.getWritableDatabase().close();
@@ -247,15 +249,15 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
     @Override
     public Etudiant getEtudiant(Integer num_etu) {
+        Etudiant etudiant = new Etudiant();
         String query = "SELECT * FROM " + TABLE_ETUDIANTS + " WHERE " + ATTRIBUT_NUMEROETU + " = " + num_etu + ";";
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
-
-            Etudiant etudiant = new Etudiant(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-            Log.i("query", etudiant.toString());
-
-            this.getWritableDatabase().close();
-            //Log.d("getetus",etudiants.toString());
-            return etudiant;
+        if (cursor.moveToFirst())
+            do {
+                etudiant = new Etudiant(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            } while (cursor.moveToNext());
+        this.getWritableDatabase().close();
+        return etudiant;
 
     }
 
@@ -270,25 +272,40 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
                 UE uv = new UE(cursor.getString(1),cursor.getString(2),cursor.getInt(3));
                 ues.add(uv);
             } while (cursor.moveToNext());
-
-
         this.getWritableDatabase().close();
         return ues;
     }
 
     @Override
-    public String getResultatFromCursus(String sigle) {
+    public UE getUVseule(String sigle) {
 
-        String resultat = "";
-        String query = "SELECT c.resultat FROM " + TABLE_CURSUS + " AS c WHERE c.sigle='" + sigle + "'";
+        UE ue = new UE();
+        String query = "SELECT * FROM " + TABLE_UVS + " WHERE " + ATTRIBUT_SIGLE + " = '" + sigle + "';";
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
         if (cursor.moveToFirst())
             do  {
-resultat = cursor.getString(0);
+                ue = new UE(cursor.getString(1),cursor.getString(2),cursor.getInt(3));
+            } while (cursor.moveToNext());
+
+
+        this.getWritableDatabase().close();
+        return ue;
+    }
+
+    @Override
+    public String getResultatFromCursus(String sigle, int numeroEtu, String labelSemestre) {
+
+        String resultat = "";
+        String query = "SELECT c.resultat FROM " + TABLE_CURSUS + " AS c WHERE c.sigle='" + sigle + "' AND c.numEtu=" + numeroEtu + " AND c.semestre='" + labelSemestre + "'";
+        Cursor cursor = getWritableDatabase().rawQuery(query, null);
+        if (cursor.moveToFirst())
+            do  {
+                resultat = cursor.getString(0);
             } while (cursor.moveToNext());
         this.getWritableDatabase().close();
         return resultat;
     }
+
 
 
 
