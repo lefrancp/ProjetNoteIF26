@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class CreerEtudiant extends AppCompatActivity implements View.OnClickListener{
+import java.sql.SQLException;
+
+public class CreerEtudiant extends AppCompatActivity implements View.OnClickListener {
 
     EditText numeroEtu;
     EditText nom;
@@ -40,16 +42,16 @@ public class CreerEtudiant extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.activity_creer_etudiant_button_id :
-                Etudiant newEtudiant = new Etudiant(Integer.parseInt(numeroEtu.getText().toString()),nom.getText().toString(),prenom.getText().toString(),spinnerAdmission.getSelectedItem().toString(),spinnerFiliere.getSelectedItem().toString());
+            case R.id.activity_creer_etudiant_button_id:
+                Etudiant newEtudiant = new Etudiant(Integer.parseInt(numeroEtu.getText().toString()), nom.getText().toString(), prenom.getText().toString(), spinnerAdmission.getSelectedItem().toString(), spinnerFiliere.getSelectedItem().toString());
                 persistence.addEtudiant(newEtudiant);
-
                 OuvreCreerCursus();
                 break;
+        }
     }
-}
+
     public void OuvreCreerCursus() {
-        Intent intent = new Intent(this,CreerCursus.class);
+        Intent intent = new Intent(this, CreerCursus.class);
         intent.putExtra("numero_etu", numeroEtu.getText().toString());
         startActivity(intent);
     }

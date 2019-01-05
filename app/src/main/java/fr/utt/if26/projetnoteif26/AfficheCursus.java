@@ -25,9 +25,16 @@ public class AfficheCursus extends AppCompatActivity {
     TextView globalECTextView;
     TextView globalMETextView;
     TextView globalCTTextView;
+    TextView totalCreditsTextView;
 
-    TextView totalCreditTextView;
-    TextView globalCreditTextView;
+    TextView cSTMdeTCOK;
+    TextView cSTMdeTCBROK;
+    TextView cSTMdeFiliereOK;
+    TextView cSTMOK;
+    TextView stOK;
+    TextView ecOK;
+    TextView mectOK;
+
     Integer numeroEtu;
     int creditsTotaux = 0;
     int creditsGlobaux = 300;
@@ -45,8 +52,16 @@ public class AfficheCursus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affiche_cursus);
 
-        totalCreditTextView = (TextView) findViewById(R.id.total_credits_id);
-        globalCreditTextView = (TextView) findViewById(R.id.global_credit_id);
+        cSTMdeTCOK = (TextView) findViewById(R.id.textView_CSTMdeTCOK);
+        cSTMdeTCBROK = (TextView) findViewById(R.id.textView_CSTMdeTCBROK);
+        cSTMdeFiliereOK = (TextView) findViewById(R.id.textView_CSTMdeFiliereOK);
+        cSTMOK = (TextView) findViewById(R.id.texTviewCSTMOK);
+        stOK = (TextView) findViewById(R.id.textView_STok);
+        ecOK = (TextView) findViewById(R.id.textView_ECok);
+        mectOK = (TextView) findViewById(R.id.textView_MECTok);
+
+        totalCreditsTextView = (TextView) findViewById(R.id.textView_totalCredits);
+
         ListView listeSemestre = (ListView) findViewById(R.id.activity_affiche_cursus_listview);
         EtudiantPersistance persistance = new EtudiantPersistance(this, "projetIF26.db", null, 1);
 
@@ -127,10 +142,10 @@ public class AfficheCursus extends AppCompatActivity {
                     case ("ME") :
                         creditsME += credit;
                         break;
-                    case ("CT") :
+                    case ("EC") :
                         creditsEC += credit;
                         break;
-                    case ("HT") :
+                    case ("CT") :
                         creditsCT += credit;
                         break;
                     case ("ST") :
@@ -154,9 +169,39 @@ public class AfficheCursus extends AppCompatActivity {
         globalMETextView.setText(getString(R.string.globalME, creditsME));
         globalCTTextView.setText(getString(R.string.globalCT, creditsCT));
 
+        if (creditsCSdeTC + creditsTMdeTC < 66) {
+            cSTMdeTCOK.setText(getString(R.string.cstmdeTCpasOK, (66-(creditsCSdeTC+creditsTMdeTC))));
+        } else
+            cSTMdeTCOK.setText(getString(R.string.cstmdeTCOK));
+        if (creditsCSTMdeTCBR < 42) {
+            cSTMdeTCBROK.setText(getString(R.string.cstmdeTCBRpasOK, (42-creditsCSTMdeTCBR)));
+        } else
+            cSTMdeTCBROK.setText(getString(R.string.cstmdeTCBROK));
+        if (creditsCSTMdeFliere < 18) {
+            cSTMdeFiliereOK.setText(getString(R.string.cstmdeFIlierepasOK, (18 - creditsCSTMdeFliere)));
+        } else
+            cSTMdeFiliereOK.setText(getString(R.string.cstmdeFiliere));
+        if (globalCSTM < 162) {
+            cSTMOK.setText(getString(R.string.cstmpasOK, (162-globalCSTM)));
+        } else
+            cSTMOK.setText(getString(R.string.cstmOK));
+        if (creditsST < 66) {
+            stOK.setText(getString(R.string.stpasOK, (66-creditsST)));
+        } else
+            stOK.setText(getString(R.string.stOK));
+        if (creditsEC < 20) {
+            ecOK.setText(getString(R.string.ecpasOK, 20 - creditsEC));
+        } else
+            ecOK.setText(getString(R.string.ecOK));
+        if (creditsME + creditsCT < 32) {
+            mectOK.setText(getString(R.string.mectpasOK, 32 - (creditsME+creditsCT)));
+        } else
+            mectOK.setText(getString(R.string.mectOK));
 
+        if (creditsTotaux < 300) {
+            totalCreditsTextView.setText(getString(R.string.totalpasOK, creditsTotaux, 300 - creditsTotaux));
+        } else
+            totalCreditsTextView.setText(getString(R.string.totalOK, creditsTotaux));
 
-        totalCreditTextView.setText(String.valueOf(creditsTotaux));
-        globalCreditTextView.setText(String.valueOf(creditsGlobaux));
     }
 }

@@ -160,7 +160,7 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
         ArrayList<ArrayList<String>> labels = new ArrayList<ArrayList<String>>();
         ArrayList<String> labelsCS = new ArrayList<String>(Arrays.asList("CS", "Aucun"));
         ArrayList<String> labelsTM = new ArrayList<String>(Arrays.asList("TM", "Aucun"));
-        ArrayList<String> labelsMECTHT = new ArrayList<String>(Arrays.asList("ME/CT/HT", "Aucun"));
+        ArrayList<String> labelsMECTHT = new ArrayList<String>(Arrays.asList("ME/EC/CT", "Aucun"));
         ArrayList<String> labelsAutre = new ArrayList<String>(Arrays.asList("UE Supplémentaire", "Aucun"));
         String query = "SELECT * FROM " + TABLE_UVS + ";";
         Cursor cursor = getWritableDatabase().rawQuery(query, null);
@@ -178,10 +178,10 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
                     case "ME" :
                         labelsMECTHT.add(cursor.getString(1));
                         break;
-                    case "CT" :
+                    case "EC" :
                         labelsMECTHT.add(cursor.getString(1));
                         break;
-                    case "HT" :
+                    case "CT" :
                         labelsMECTHT.add(cursor.getString(1));
                         break;
                 }
@@ -206,7 +206,6 @@ public class EtudiantPersistance extends SQLiteOpenHelper implements Persistance
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_CURSUS,null,cv);
-        Log.i("BISOUUUUUUUUS", cv.toString());
 
 
         db.close();

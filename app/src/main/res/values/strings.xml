@@ -84,8 +84,8 @@
         <item>CS</item>
         <item>TM</item>
         <item>ME</item>
+        <item>EC</item>
         <item>CT</item>
-        <item>HT</item>
         <item>ST</item>
     </string-array>
 
@@ -107,11 +107,31 @@
     <string name="creditCSTmdeTCBR">%1d/42"</string>
     <string name="creditCsTMFiliere">%1d/18"</string>
     <string name="totalBR">%1d/84"</string>
-    <string name="globalCSTM">%1d/102"</string>
+    <string name="globalCSTM">%1d/162"</string>
     <string name="globalST">%1d/66"</string>
     <string name="globalEC">%1d/20"</string>
     <string name="globalME">%1d/16"</string>
     <string name="globalCT">%1d/16"</string>
+
+
+    <string name="cstmdeTCpasOK">Il vous manque %1d crédits CS ou TM de TC</string>
+    <string name="cstmdeTCBRpasOK">Il vous manque %1d crédits CS ou TM de TCBR</string>
+    <string name="cstmdeFIlierepasOK">Il vous manque %1d crédits CS ou TM de Filiere</string>
+    <string name="cstmpasOK">Il vous manque %1d crédits CS ou TM au total</string>
+    <string name="stpasOK">Il vous manque %1d crédits ST</string>
+    <string name="ecpasOK">Il vous manque %1d crédits EC</string>
+    <string name="mectpasOK">Il vous manque %1d crédits ME et CT</string>
+    <string name="totalpasOK">Vous avez %1d/300 crédits. Il vous manque %2d crédits au total (Pensez aux HP)</string>
+
+    <string name="cstmdeTCOK">Tronc commun => OK</string>
+    <string name="cstmdeTCBROK">TCBR => OK</string>
+    <string name="cstmdeFiliere">Filiere => OK</string>
+    <string name="cstmOK">CS et TM au total=> OK</string>
+    <string name="stOK">ST => OK</string>
+    <string name="ecOK">EC => OK</string>
+    <string name="mectOK">ME/CT => OK</string>
+    <string name="totalOK">Vous avez %1d/300 crédits. Bravo, vous êtes ingénieur! Allez, au boulot !</string>
+
 
 
 </resources>

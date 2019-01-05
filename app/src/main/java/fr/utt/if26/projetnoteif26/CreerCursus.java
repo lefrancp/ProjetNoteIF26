@@ -45,8 +45,10 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
     Spinner autre2;
     Spinner resultatAutre2;
     Spinner affectationAutre2;
+
     Button ajouterUV;
     Button ajouterSemestre;
+    Button terminerCursus;
 
     Integer numEtu;
 
@@ -88,6 +90,8 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
 
         ajouterUV = (Button) findViewById(R.id.activity_creer_cursus_Button_ajouterUV_id);
         ajouterSemestre = (Button) findViewById(R.id.activity_creer_cursus_Button_ajouterSemestre_id);
+        terminerCursus = (Button) findViewById(R.id.activity_creer_cursus_Button_TerminerCursus_id);
+
 
 
         Bundle extras = getIntent().getExtras();
@@ -110,6 +114,7 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
 
         ajouterUV.setOnClickListener(this);
         ajouterSemestre.setOnClickListener(this);
+        terminerCursus.setOnClickListener(this);
 
         numeroSemestre.setText(String.valueOf(Integer.parseInt(numeroSemestre.getText().toString())+ 1));
 
@@ -129,38 +134,16 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
                 Intent intentSemestre = new Intent(this, CreerCursus.class);
                 intentSemestre.putExtra("numero_semestre", numeroSemestre.getText().toString());
                 intentSemestre.putExtra("numero_etu", String.valueOf(numEtu));
-                Cursus CursusUE1 = new Cursus(numEtu, cS1.getSelectedItem().toString(), resultatCS1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                CursusUE1.setAffectation(affectationCS1.getSelectedItem().toString());
-                persistance.addCursus(CursusUE1);
-                Cursus CursusUE2 = new Cursus(numEtu, cS2.getSelectedItem().toString(), resultatCS2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                CursusUE2.setAffectation(affectationCS2.getSelectedItem().toString());
-                persistance.addCursus(CursusUE2);
-                Cursus CursusUE3 = new Cursus(numEtu, tM1.getSelectedItem().toString(), resultatTM1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                CursusUE3.setAffectation(affectationTM1.getSelectedItem().toString());
-                persistance.addCursus(CursusUE3);
-                Cursus CursusUE4 = new Cursus(numEtu, tM2.getSelectedItem().toString(), resultatTM2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                CursusUE4.setAffectation(affectationTM2.getSelectedItem().toString());
-                persistance.addCursus(CursusUE4);
-                Cursus CursusUE5 = new Cursus(numEtu, mECTHT1.getSelectedItem().toString(), resultatMECTHT1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                persistance.addCursus(CursusUE5);
-                Cursus CursusUE6 = new Cursus(numEtu, mECTHT2.getSelectedItem().toString(), resultatMECTHT2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                persistance.addCursus(CursusUE6);
-                Cursus CursusUE7 = new Cursus(numEtu, autre1.getSelectedItem().toString(), resultatAutre1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                if (affectationAutre1.getSelectedItem().toString().equals(" ")) {
-                    CursusUE7.setAffectation("default");
-                } else {
-                    CursusUE7.setAffectation(affectationAutre1.getSelectedItem().toString());
-                }
-                persistance.addCursus(CursusUE7);
-                Cursus CursusUE8 = new Cursus(numEtu, autre2.getSelectedItem().toString(), resultatAutre2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
-                if (affectationAutre2.getSelectedItem().toString().equals(" ")) {
-                    CursusUE8.setAffectation("default");
-                } else {
-                    CursusUE8.setAffectation(affectationAutre2.getSelectedItem().toString());
-                }
-                persistance.addCursus(CursusUE8);
+                ajouterUESaBDD();
                 startActivity(intentSemestre);
                 this.finish();
+                break;
+            case R.id.activity_creer_cursus_Button_TerminerCursus_id :
+                Intent intentTerminer = new Intent(this, MainActivity.class);
+                ajouterUESaBDD();
+                startActivity(intentTerminer);
+                this.finish();
+                break;
         }
 
     }
@@ -197,6 +180,39 @@ public class CreerCursus extends AppCompatActivity implements View.OnClickListen
         autre1.setAdapter(dataAdapterAutre);
         autre2.setAdapter(dataAdapterAutre);
 
+    }
+
+    private void ajouterUESaBDD() {
+        Cursus CursusUE1 = new Cursus(numEtu, cS1.getSelectedItem().toString(), resultatCS1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        CursusUE1.setAffectation(affectationCS1.getSelectedItem().toString());
+        persistance.addCursus(CursusUE1);
+        Cursus CursusUE2 = new Cursus(numEtu, cS2.getSelectedItem().toString(), resultatCS2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        CursusUE2.setAffectation(affectationCS2.getSelectedItem().toString());
+        persistance.addCursus(CursusUE2);
+        Cursus CursusUE3 = new Cursus(numEtu, tM1.getSelectedItem().toString(), resultatTM1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        CursusUE3.setAffectation(affectationTM1.getSelectedItem().toString());
+        persistance.addCursus(CursusUE3);
+        Cursus CursusUE4 = new Cursus(numEtu, tM2.getSelectedItem().toString(), resultatTM2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        CursusUE4.setAffectation(affectationTM2.getSelectedItem().toString());
+        persistance.addCursus(CursusUE4);
+        Cursus CursusUE5 = new Cursus(numEtu, mECTHT1.getSelectedItem().toString(), resultatMECTHT1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        persistance.addCursus(CursusUE5);
+        Cursus CursusUE6 = new Cursus(numEtu, mECTHT2.getSelectedItem().toString(), resultatMECTHT2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        persistance.addCursus(CursusUE6);
+        Cursus CursusUE7 = new Cursus(numEtu, autre1.getSelectedItem().toString(), resultatAutre1.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        if (affectationAutre1.getSelectedItem().toString().equals(" ")) {
+            CursusUE7.setAffectation("default");
+        } else {
+            CursusUE7.setAffectation(affectationAutre1.getSelectedItem().toString());
+        }
+        persistance.addCursus(CursusUE7);
+        Cursus CursusUE8 = new Cursus(numEtu, autre2.getSelectedItem().toString(), resultatAutre2.getSelectedItem().toString(), labelSemestre.getSelectedItem().toString(), "false");
+        if (affectationAutre2.getSelectedItem().toString().equals(" ")) {
+            CursusUE8.setAffectation("default");
+        } else {
+            CursusUE8.setAffectation(affectationAutre2.getSelectedItem().toString());
+        }
+        persistance.addCursus(CursusUE8);
     }
 
     @Override

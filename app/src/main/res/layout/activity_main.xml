@@ -1,89 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/GrisFonce"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="194dp"
+        android:layout_weight="0"
+        android:paddingTop="20dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="53dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/main_acivity_button_liste_etudiant_id"
+        style="@android:style/ButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_weight="0"
+        android:background="@android:color/holo_orange_dark"
+        android:text="Liste Etudiants"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="137dp" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:layout_weight="1"
-                android:text="C'EST LE PROJET IF26"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="53dp" />
+    <Button
+        android:id="@+id/main_acivity_button_creer_etudiant_id"
+        style="@android:style/ButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_weight="0"
+        android:background="@color/rougechelou"
+        android:text="Créer Etudiant"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="137dp" />
 
-        </LinearLayout>
+    <Button
+        android:id="@+id/main_acivity_button_gestion_ues_id"
+        style="@android:style/ButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_weight="0"
+        android:background="#11ff45"
+        android:text="Gérer UES"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="137dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/main_acivity_button_liste_etudiant_id"
-                android:layout_width="match_parent"
-                android:layout_height="96dp"
-                android:layout_weight="1"
-                android:text="Liste Etudiants"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="137dp" />
-
-            <Button
-                android:id="@+id/main_acivity_button_creer_etudiant_id"
-                android:layout_width="match_parent"
-                android:layout_height="96dp"
-                android:layout_weight="1"
-                android:text="Créer Etudiant"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="137dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="256dp"
-            tools:layout_editor_absoluteY="256dp">
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="139dp"
-                android:layout_height="96dp"
-                android:layout_weight="1"
-                android:text="Button"
-                tools:layout_editor_absoluteX="33dp"
-                tools:layout_editor_absoluteY="296dp" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="139dp"
-                android:layout_height="96dp"
-                android:layout_weight="1"
-                android:text="Button"
-                tools:layout_editor_absoluteX="213dp"
-                tools:layout_editor_absoluteY="295dp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -20,7 +20,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Numéro étudiant :" />
+                android:text="Numéro étudiant :"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/etudiant_num"
@@ -28,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -44,6 +46,7 @@
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAllCaps="true"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -52,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -69,7 +73,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Filière : " />
+                android:text="Filière : "
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/etudiant_filiere"
@@ -77,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
             <TextView
@@ -84,7 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Admis en :" />
+                android:text="Admis en :"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/etudiant_admission"
@@ -92,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>
