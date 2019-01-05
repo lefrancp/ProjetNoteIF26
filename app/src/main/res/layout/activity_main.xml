@@ -12,7 +12,7 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="194dp"
+        android:layout_height="155dp"
         android:layout_weight="0"
         android:paddingTop="20dp"
         android:textAlignment="center"
